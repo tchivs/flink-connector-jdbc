@@ -11,9 +11,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-/**
- * Simple implementation of {@link JdbcStatementBuilder} for {@link Row}.
- */
+/** Simple implementation of {@link JdbcStatementBuilder} for {@link Row}. */
 public class SimpleRowJdbcStatementBuilder implements JdbcStatementBuilder<Row> {
 
     private final TypeInformation<?>[] fieldTypes;
@@ -38,7 +36,8 @@ public class SimpleRowJdbcStatementBuilder implements JdbcStatementBuilder<Row> 
         }
     }
 
-    private void setField(PreparedStatement ps, int index, Object value, TypeInformation<?> type) throws SQLException {
+    private void setField(PreparedStatement ps, int index, Object value, TypeInformation<?> type)
+            throws SQLException {
         if (type == Types.STRING) {
             ps.setString(index, (String) value);
         } else if (type == Types.INT) {
